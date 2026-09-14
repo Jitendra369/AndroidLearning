@@ -1,5 +1,7 @@
 package com.example.myapp;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
@@ -12,10 +14,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.myapp.dto.Place;
 
 public class CurrencyConverterActivity extends AppCompatActivity {
 
@@ -24,6 +29,7 @@ public class CurrencyConverterActivity extends AppCompatActivity {
     private Button mButtonConvertValue;
     private Spinner mSpinnerCurrValues;
 
+    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +39,7 @@ public class CurrencyConverterActivity extends AppCompatActivity {
         initView();
         setupSpinner();
         setListners();
+        getInputFomPreviousActivity();
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -41,6 +48,18 @@ public class CurrencyConverterActivity extends AppCompatActivity {
             return insets;
         });
     }
+
+    private void getInputFomPreviousActivity() {
+        Intent receivedPlace = getIntent();
+        if (receivedPlace != null){
+            Place place = null;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+                place = receivedPlace.getParcelableExtra("place", Place.class);
+            }
+            Toast.makeText(this, "Place : "+ place.getName()+ ", City: "+ place.getCity(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
     private void setListners() {
         mButtonConvertValue.setOnClickListener(view -> {

@@ -2,6 +2,7 @@ package com.example.myapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 
@@ -10,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.myapp.dto.Place;
 
 public class IndexActivity extends AppCompatActivity {
 
@@ -50,16 +53,20 @@ public class IndexActivity extends AppCompatActivity {
         int id = view.getId();
 
         if (id == R.id.buttonCurrency){
-            navigateRoute(SignUpAactivity.class);
+            Place place = new Place("Bhakti-Dham","Chandur Bazar");
+            navigateRoute(CurrencyConverterActivity.class, place);
         } else if (id == R.id.buttonSignUpForm) {
-            navigateRoute(CurrencyConverterActivity.class);
+            navigateRoute(SignUpAactivity.class, null);
         }else if (id == R.id.buttonListView){
-            navigateRoute(ListViewActivity.class);
+            navigateRoute(ListViewActivity.class, null);
         }
     }
 
-    private void navigateRoute(Class<?> activityClass){
+    private void navigateRoute(Class<?> activityClass, Parcelable object){
         Intent intent = new Intent(this, activityClass);
+        if (object != null){
+            intent.putExtra("place", object);
+        }
         startActivity(intent);
     }
 
