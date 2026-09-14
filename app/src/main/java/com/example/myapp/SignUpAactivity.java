@@ -1,5 +1,6 @@
 package com.example.myapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -40,6 +43,10 @@ public class SignUpAactivity extends AppCompatActivity {
     private CheckBox mCheckBoxAndroid;
     private CheckBox mCheckBoxSpringBoot;
     private TextView mTextViewLanguage;
+
+    ActivityResultLauncher<Intent> editPlaceLauncher;
+    private Button mButtonEditUserDetails;
+
     private final String TAG = this.getClass().getName();
 
 
@@ -51,6 +58,7 @@ public class SignUpAactivity extends AppCompatActivity {
 
         initView();
         setLiner();
+        editUserDetailsLauncher();
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -59,8 +67,25 @@ public class SignUpAactivity extends AppCompatActivity {
         });
     }
 
+    // execute the code , after returning from editUserDetails activity
+    private void editUserDetailsLauncher() {
+        editPlaceLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(), result ->{
+                    if (result.getResultCode() == RESULT_OK){
+                        Intent data = result.getData();
+                        if (data != null){
+                            String updatedPlace = data.getStringExtra("updatedPlace");
+                            Toast.makeText(this,"updated "+ updatedPlace, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+        );
+    }
+
     private void setLiner() {
         mButtonSignUp.setOnClickListener(this::handleClick);
+        mButtonEditUserDetails.setOnClickListener(this::handleClick);
+
     }
 
     private void initView() {
@@ -81,6 +106,8 @@ public class SignUpAactivity extends AppCompatActivity {
         mCheckBoxAndroid = findViewById(R.id.checkBoxLangAndroid);
         mCheckBoxSpringBoot = findViewById(R.id.checkBoxLangSpringboot);
         mTextViewLanguage = findViewById(R.id.textViewLangaugeOptions);
+        mButtonSignUp = findViewById(R.id.buttonEditUserDetails);
+        mButtonEditUserDetails = findViewById(R.id.buttonEditUserDetails);
     }
 
     private void handleClick(View view) {
@@ -94,6 +121,12 @@ public class SignUpAactivity extends AppCompatActivity {
                 setDataView(userDetailsDto);
             } else {
             }
+        }
+        if (id == R.id.buttonEditUserDetails){
+            // start the activity for result
+            Intent intent = new Intent(this, EditUserDetailsActivity.class);
+            intent.putExtra("place","Mumbai");
+            editPlaceLauncher.launch(intent);
         }
     }
 
