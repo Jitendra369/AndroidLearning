@@ -151,63 +151,72 @@
             </LinearLayout>
 
 
-            <LinearLayout
-                android:id="@+id/layout_liner_showSignUpDetails"
+            <ListView
+                android:id="@+id/listViewUserDetails"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:background="#F0F0F0"
-                android:orientation="vertical"
-                android:paddingLeft="20dp"
+                android:layout_height="170dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/layout_liner_signUp">
+                app:layout_constraintTop_toBottomOf="@id/layout_liner_signUp" />
 
-                <TextView
-                    android:text="User Details"
-                    android:textStyle="bold"
-                    android:textAlignment="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+            <!--            <LinearLayout-->
+            <!--                android:id="@+id/layout_liner_showSignUpDetails"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="20dp"-->
+            <!--                android:background="#F0F0F0"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:paddingLeft="20dp"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/layout_liner_signUp">-->
 
-                <TextView
-                    android:layout_marginTop="10dp"
-                    android:id="@+id/textViewShowFullName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Jitendra Kadu" />
+            <!--                <TextView-->
+            <!--                    android:text="User Details"-->
+            <!--                    android:textStyle="bold"-->
+            <!--                    android:textAlignment="center"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"/>-->
 
-                <TextView
-                    android:id="@+id/textViewShowEmail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="jiitukadu@gmail.com" />
+            <!--                <TextView-->
+            <!--                    android:layout_marginTop="10dp"-->
+            <!--                    android:id="@+id/textViewShowFullName"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Jitendra Kadu" />-->
 
-                <TextView
-                    android:id="@+id/textViewShowPassword"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="passwordu" />
+            <!--                <TextView-->
+            <!--                    android:id="@+id/textViewShowEmail"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="jiitukadu@gmail.com" />-->
 
-                <TextView
-                    android:id="@+id/textViewGender"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Gender" />
+            <!--                <TextView-->
+            <!--                    android:id="@+id/textViewShowPassword"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="passwordu" />-->
 
-                <TextView
-                    android:id="@+id/textViewLangaugeOptions"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="langauge" />
+            <!--                <TextView-->
+            <!--                    android:id="@+id/textViewGender"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Gender" />-->
 
-                <Button
-                    android:id="@+id/buttonEditUserDetails"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Edit Details"
-                    />
-            </LinearLayout>
+            <!--                <TextView-->
+            <!--                    android:id="@+id/textViewLangaugeOptions"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="langauge" />-->
+
+            <!--                <Button-->
+            <!--                    android:id="@+id/buttonEditUserDetails"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Edit Details"-->
+            <!--                    />-->
+            <!--            </LinearLayout>-->
         </LinearLayout>
     </ScrollView>
 

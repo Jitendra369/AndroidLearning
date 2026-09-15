@@ -19,6 +19,7 @@ public class IndexActivity extends AppCompatActivity {
     private Button mCurrencyButton;
     private Button mSignUpButton;
     private Button mListViewButton;
+    private Button mButtonCustomListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +41,14 @@ public class IndexActivity extends AppCompatActivity {
         mCurrencyButton.setOnClickListener(this::handleButtonClick);
         mSignUpButton.setOnClickListener(this::handleButtonClick);
         mListViewButton.setOnClickListener(this::handleButtonClick);
+        mButtonCustomListView.setOnClickListener(this::handleButtonClick);
     }
 
     private void initView() {
         mCurrencyButton = findViewById(R.id.buttonCurrency);
         mSignUpButton = findViewById(R.id.buttonSignUpForm);
         mListViewButton = findViewById(R.id.buttonListView);
+        mButtonCustomListView = findViewById(R.id.buttonCustomListView);
     }
 
     private void handleButtonClick(View view) {
@@ -59,6 +62,8 @@ public class IndexActivity extends AppCompatActivity {
             navigateRoute(SignUpAactivity.class, null);
         }else if (id == R.id.buttonListView){
             navigateRoute(ListViewActivity.class, null);
+        }else if (id == R.id.buttonCustomListView){
+            navigateRoute(CustomListViewActivity.class, null);
         }
     }
 
