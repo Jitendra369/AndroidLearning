@@ -8,15 +8,17 @@ public class User {
     private String email;
     private String password;
     private String gender;
+    private int imageResId;
     private List<String> lang;
 
     public User() {
     }
 
-    public User(String name, String email, String gender) {
+    public User(String name, String email, String gender, int imageResId) {
         this.name = name;
         this.email = email;
         this.gender = gender;
+        this.imageResId = imageResId;
     }
 
     public User(String name, String email, String password, String gender, List<String> lang) {
@@ -25,6 +27,14 @@ public class User {
         this.password = password;
         this.gender = gender;
         this.lang = lang;
+    }
+
+    public int getImageResId() {
+        return imageResId;
+    }
+
+    public void setImageResId(int imageResId) {
+        this.imageResId = imageResId;
     }
 
     public String getName() {

@@ -30,6 +30,7 @@ public class CustomListViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_custom_list_view);
+
         userList = new ArrayList<>();
         loadSampleUserDetails();
         viewInit();
@@ -57,7 +58,8 @@ public class CustomListViewActivity extends AppCompatActivity {
                 new User(
                         "Rahul",
                         "rahul@gmail.com",
-                        "Male"
+                        "Male",
+                        R.drawable.user_12
                 )
         );
 
@@ -65,7 +67,8 @@ public class CustomListViewActivity extends AppCompatActivity {
                 new User(
                         "Amit",
                         "amit@gmail.com",
-                        "Male"
+                        "Male",
+                        R.drawable.user_31267
                 )
         );
 
@@ -73,7 +76,8 @@ public class CustomListViewActivity extends AppCompatActivity {
                 new User(
                         "Sneha",
                         "sneha@gmail.com",
-                        "Female"
+                        "Female",
+                        R.drawable.user_181761
                 )
         );
 
@@ -81,7 +85,8 @@ public class CustomListViewActivity extends AppCompatActivity {
                 new User(
                         "Priya",
                         "priya@gmail.com",
-                        "Female"
+                        "Female",
+                        R.drawable.user_342664
                 )
         );
     }
